@@ -1,16 +1,18 @@
 import './indexDrink.css';
 import { Layer } from '../Layer/indexLayer.jsx';
 
-export const Drink = ({ name, image }) => {
+export const Drink = ({ name, image, id, layers, ordered }) => {
   return (
     <div className="drink">
       <div className="drink__product">
         <div className="drink__cup">
-          <img src="/cups/espresso.png" />
+          <img src={`http://localhost:4000${image}`} />
         </div>
         <div className="drink__info">
           <h3>{name}</h3>
-          <Layer color="#feeeca" label="espresso" />
+          {layers.map((layer) => {
+            <Layer color={layer.color} label={layer.label} />;
+          })}
         </div>
       </div>
       <form className="drink__controls">

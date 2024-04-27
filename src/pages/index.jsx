@@ -8,12 +8,16 @@ import { Gallery } from '../Components/Gallery.jsx';
 import { Contact } from '../Components/Contact.jsx';
 import { Footer } from '../Components/Footer.jsx';
 
+const drinkApi = await fetch('http://localhost:4000/api/drinks');
+const json = await drinkApi.json();
+//console.log(json.data);
+
 document.querySelector('#root').innerHTML = render(
   <div className="page">
     <Header />
     <main>
       <Banner />
-      <Menu />
+      <Menu drinks={json.data} />
       <Gallery />
       <Contact />
     </main>
@@ -21,8 +25,10 @@ document.querySelector('#root').innerHTML = render(
   </div>,
 );
 
-const navBtn = document.querySelector('.nav-btn');
+//Api stahovani dat
 
+//------block hamburger
+const navBtn = document.querySelector('.nav-btn');
 navBtn.addEventListener('click', () => {
   document.querySelector('.rollout-nav').classList.toggle('nav-closed');
 });
