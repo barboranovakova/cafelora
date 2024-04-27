@@ -1,3 +1,5 @@
+import './Gallery.css';
+
 export const Gallery = (
   <section className="gallery">
     <div className="container">
