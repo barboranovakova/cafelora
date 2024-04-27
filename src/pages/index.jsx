@@ -41,5 +41,17 @@ formElems.forEach((oneForm) => {
   oneForm.addEventListener('submit', async (evt) => {
     evt.preventDefault();
     console.log(evt.target.dataset.id);
+    const id = evt.target.dataset.id;
+    console.log(json.data[id].ordered);
+    fetch(`http://localhost:4000/api/drinks/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify([
+        { op: 'replace', path: '/ordered', value: !json.data[id].ordered },
+      ]),
+    });
+    window.location.reload();
   });
 });

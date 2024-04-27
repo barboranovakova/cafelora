@@ -20,7 +20,7 @@ export const Drink = ({ name, image, id, layers, ordered }) => {
         <button
           className={ordered ? 'order-btn order-btn--ordered' : 'order-btn'}
         >
-          {ordered ? 'Objednat' : 'Zrušit'}
+          {ordered ? 'Zrušit' : 'Objednat'}
         </button>
       </form>
     </div>
