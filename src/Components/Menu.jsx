@@ -17,6 +17,7 @@ export const Menu = ({ drinks }) => {
             return (
               <Drink
                 key={drink.id}
+                id={drink.id}
                 name={drink.name}
                 ordered={drink.ordered}
                 layers={drink.layers}

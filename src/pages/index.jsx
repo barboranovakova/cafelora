@@ -25,8 +25,6 @@ document.querySelector('#root').innerHTML = render(
   </div>,
 );
 
-//Api stahovani dat
-
 //------block hamburger
 const navBtn = document.querySelector('.nav-btn');
 navBtn.addEventListener('click', () => {
@@ -35,4 +33,13 @@ navBtn.addEventListener('click', () => {
 const rolloutNav = document.querySelector('.rollout-nav');
 rolloutNav.addEventListener('click', () => {
   rolloutNav.classList.add('nav-closed');
+});
+
+const formElems = document.querySelectorAll('.drink__controls');
+console.log(formElems);
+formElems.forEach((oneForm) => {
+  oneForm.addEventListener('submit', async (evt) => {
+    evt.preventDefault();
+    console.log(evt.target.dataset.id);
+  });
 });
